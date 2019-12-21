@@ -1,0 +1,36 @@
+.metronome {
+    text-align: center;
+    max-width: 375px;
+    margin: 0 auto;
+    padding: 30px;
+  }
+  
+  .slider input {
+    width: 100%;
+    margin: 10px;
+  }
+  
+  .metronome button {
+    background: #c94d46;
+    padding: 10px;
+    border: 1px solid #832420;
+    border-radius: 2px;
+    width: 100px;
+    color: #fff;
+    font-size: 18px;
+  }
+
+  .metro-container {
+    width: 400px;
+    height: 175px;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+
+  .main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+  }
