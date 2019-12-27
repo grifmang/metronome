@@ -23,11 +23,13 @@ const Metronome = () => {
             click1.play();
         }
 
-        setMetronomeState({
-            ...metronomeState,
-            count: (metronomeState.count + 1) % metronomeState.beatsPerMeasure
-        })
-    }, [metronomeState.count])
+        setMetronomeState((state) => (
+            {
+                ...state,
+                count: (state.count + 1)
+            }
+        ))
+    }, [metronomeState, click1, click2])
 
     useEffect(() => {
         if (metronomeState.playing) {
@@ -36,30 +38,22 @@ const Metronome = () => {
         } else {
             clearInterval(timer.current)
         }
-    }, [metronomeState.bpm, metronomeState.playing])
+    }, [metronomeState, playClick])
 
     const startSound = () => {
-        if (metronomeState.playing) {
-            setMetronomeState({ 
-                ...metronomeState,
-                playing: !metronomeState.playing })
-        } else {
-            setMetronomeState({
-                ...metronomeState,
-                count: 0,
-                playing: !metronomeState.playing
-            });
-        }
+        setMetronomeState({
+            ...metronomeState,
+            count: 0,
+            playing: !metronomeState.playing
+        });
     }
 
     const handleBPM = e => {
         setMetronomeState({
+            ...metronomeState,
+            count: 0,
             bpm: e.target.value
         })
-
-        if (metronomeState.playing) {
-            setMetronomeState({ count: 0 })
-        }
     }
 
     return (
